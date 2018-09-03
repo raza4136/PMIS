@@ -1,5 +1,7 @@
 package pmais.razatech.db;
 
+import android.content.ContentValues;
+import android.content.Context;
 import android.database.sqlite.SQLiteDatabase;
 import android.provider.BaseColumns;
 
@@ -21,18 +23,28 @@ public class DBTables {
     }
 
     public static class InsertData {
-        public static void insertUserProfile(String title, String pass, String Phone, int des) {
-            SQLiteDatabase db = new DBHandler()
+        public static int insertUserProfile(Context context, String title, String pass, String phone, int des) {
+            SQLiteDatabase db = new DBHandler(context).getReadableDatabase();
 
 // Create a new map of values, where column names are the keys
             ContentValues values = new ContentValues();
-            values.put(FeedEntry.COLUMN_NAME_TITLE, FeedEntry.COLUMN_NAME_TITLE);
-            values.put(FeedEntry.COLUMN_NAME_ADDRESS, FeedEntry.COLUMN_NAME_ADDRESS);
-            values.put(FeedEntry.COLUMN_NAME_PHONE, FeedEntry.COLUMN_NAME_PHONE);
-
+            values.put(TableColumns.TITLE, title);
+            values.put(TableColumns.PASSWORD, pass);
+            values.put(TableColumns.PHONE, phone);
+            values.put(TableColumns.DESIGNATIONS, des);
 // Insert the new row, returning the primary key value of the new row
-            long newRowId = db.insert(FeedEntry.TABLE_NAME, null, values);
-            return newRowId;
+            long newRowId = db.insert(TableName.USER_PROFILE, null, values);
+            return (int) newRowId;
+        }
+        public static int insertDesignation(Context context, String title) {
+            SQLiteDatabase db = new DBHandler(context).getReadableDatabase();
+
+// Create a new map of values, where column names are the keys
+            ContentValues values = new ContentValues();
+            values.put(TableColumns.TITLE, title);
+// Insert the new row, returning the primary key value of the new row
+            long newRowId = db.insert(TableName.DESIGNATIONS, null, values);
+            return (int) newRowId;
         }
     }
 }

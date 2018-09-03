@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:padding="10dp"
+    tools:context=".dialogboxes.SingleInput">
+
+
+    <TextView
+        android:id="@+id/singleInputLayoutTitle"
+        style="@style/AppTitleStyle"
+        android:text="fsdafasdfasdfasda"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+
+    <EditText
+        android:id="@+id/singleInputLayoutEditText"
+        android:layout_width="match_parent"
+        android:layout_height="36dp"
+        android:background="@drawable/edit_text_border"
+        android:inputType="text"
+        android:maxLines="1"
+        android:singleLine="true"
+        android:text="sdfasdfsd"
+        android:textColorHint="@android:color/darker_gray"
+        android:textCursorDrawable="@drawable/color_cursor"
+        android:textSize="18sp"
+        app:layout_constraintTop_toBottomOf="@id/singleInputLayoutTitle" />
+
+
+    <LinearLayout
+        android:layout_width="180dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="15dp"
+        android:visibility="visible"
+        android:weightSum="2"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/singleInputLayoutEditText">
+
+        <Button
+            android:id="@+id/singleInputLayoutOkButton"
+            android:layout_width="0dp"
+            android:layout_height="35dp"
+            android:layout_marginEnd="8dp"
+            android:layout_weight="1"
+            android:background="@drawable/border_btn"
+            android:text=" Ok "
+            android:textColor="#000" />
+
+        <Button
+            android:id="@+id/singleInputLayoutCancelButton"
+            android:layout_width="0dp"
+            android:layout_height="35dp"
+            android:layout_weight="1"
+            android:background="@drawable/border_btn"
+            android:text=" Cancel "
+            android:textColor="#000" />
+
+    </LinearLayout>
+
+</android.support.constraint.ConstraintLayout>

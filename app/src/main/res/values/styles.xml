@@ -8,4 +8,25 @@
         <item name="colorAccent">@color/colorAccent</item>
     </style>
 
+    <style name="AppTitleStyle" parent="AppTheme">
+        <item name="android:layout_width">wrap_content</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:textColor">@color/colorTitle</item>
+        <item name="android:textSize">18sp</item>
+        <item name="android:textStyle">bold</item>
+    </style>
+    <style name="AppEditTextStyle" parent="AppTheme">
+       <item name="android:background">@drawable/edit_text_border</item>
+
+    </style>
+    android:layout_width="match_parent"
+    android:layout_height="36dp"
+    android:background="@drawable/edit_text_border"
+    android:inputType="text"
+    android:maxLines="1"
+    android:singleLine="true"
+    android:text="sdfasdfsd"
+    android:textColorHint="@android:color/darker_gray"
+    android:textCursorDrawable="@drawable/color_cursor"
+    android:textSize="18sp"
 </resources>
