@@ -6,6 +6,7 @@ import android.view.View;
 import android.widget.Toast;
 
 import pmais.razatech.db.DBTables;
+import pmais.razatech.dialogboxes.SingleInput;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -16,8 +17,21 @@ public class MainActivity extends AppCompatActivity {
 
     }
 
-    public void login(View view) {
-        int addedID = DBTables.InsertData.insertDesignation(this, "Admin");
-        Toast.makeText(this,"ID"+addedID,Toast.LENGTH_SHORT).show();
+    public void AddDesignation(View view) {
+        final SingleInput InputAlert = new SingleInput(this, true, new int[]{0, 0}, new String[]{"Add Designation", "Administrator", "", "Save", "Cancel"},
+                (buttonId, EditTextValue) -> {
+                    switch (buttonId) {
+                        case 1:
+                            int addedID = DBTables.InsertData.insertDesignation(MainActivity.this, "Admin");
+                            Toast.makeText(MainActivity.this, "Added With ID " + addedID, Toast.LENGTH_SHORT).show();
+
+                            break;
+                        case 0:
+                            break;
+                        default:
+                            break;
+                    }
+                });
+        InputAlert.show();
     }
 }

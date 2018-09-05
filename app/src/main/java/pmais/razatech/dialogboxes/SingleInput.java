@@ -24,13 +24,13 @@ public class SingleInput extends Dialog implements View.OnClickListener {
     private boolean isCancelable = false;
     private DialogClicksListener mMyListener;
 
-    public SingleInput(Context context, boolean cancelable, DialogClicksListener listener, int[] buttonVisiability, String... texts) {
+    public SingleInput(Context context, boolean cancelable, int[] buttonVisibility, String[] texts, DialogClicksListener listener) {
         super(context);
         this.ctx = context;
         this.mTexts = texts;
         this.mMyListener = listener;
         this.isCancelable = cancelable;
-        this.mButtonsVisiability = buttonVisiability;
+        this.mButtonsVisiability = buttonVisibility;
     }
 
     @Override
@@ -52,6 +52,7 @@ public class SingleInput extends Dialog implements View.OnClickListener {
                 break;
 
         }
+        dismiss();
     }
 
     private void Modification() {
@@ -61,11 +62,12 @@ public class SingleInput extends Dialog implements View.OnClickListener {
         mPostiveButton = findViewById(R.id.singleInputLayoutOkButton);
         mNegtiveButton = findViewById(R.id.singleInputLayoutCancelButton);
         mTitle.setText(mTexts[0]);
-        mEditText.setHint(mTexts[1]);
-        mPostiveButton.setText(mTexts[2]);
-        mNegtiveButton.setText(mTexts[3]);
-        if (!mTexts[4].equals(""))
-            mEditText.setText(mTexts[4]);
+        if (!mTexts[1].equals(""))
+            mEditText.setHint(mTexts[1]);
+        if (!mTexts[2].equals(""))
+            mEditText.setText(mTexts[2]);
+        mPostiveButton.setText(mTexts[3]);
+        mNegtiveButton.setText(mTexts[4]);
         mPostiveButton.setVisibility(mButtonsVisiability[0]);
         mNegtiveButton.setVisibility(mButtonsVisiability[1]);
         mPostiveButton.setOnClickListener(this);
